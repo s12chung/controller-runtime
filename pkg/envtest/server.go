@@ -150,6 +150,8 @@ func (te *Environment) Start() (*rest.Config, error) {
 		}
 		te.ControlPlane.Etcd.StartTimeout = te.ControlPlaneStartTimeout
 		te.ControlPlane.Etcd.StopTimeout = te.ControlPlaneStopTimeout
+		te.ControlPlane.Etcd.Out = os.Stdout
+		te.ControlPlane.Etcd.Err = os.Stdout
 		te.ControlPlane.APIServer.StartTimeout = te.ControlPlaneStartTimeout
 		te.ControlPlane.APIServer.StopTimeout = te.ControlPlaneStopTimeout
 
