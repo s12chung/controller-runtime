@@ -173,19 +173,7 @@ func (te *Environment) Start() (*rest.Config, error) {
 }
 
 func (te *Environment) startControlPlane() error {
-	numTries, maxRetries := 0, 5
-	var err error
-	for ; numTries < maxRetries; numTries++ {
-		// Start the control plane - retry if it fails
-		err = te.ControlPlane.Start()
-		if err == nil {
-			break
-		}
-	}
-	if numTries == maxRetries {
-		return fmt.Errorf("failed to start the controlplane. retried %d times: %v", numTries, err)
-	}
-	return nil
+	return te.ControlPlane.Start()
 }
 
 func (te *Environment) defaultTimeouts() error {
